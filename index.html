@@ -1,67 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Data & Analytics Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Chimdi Nwigwe | Business & Data Analytics Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
-    body { font-family: Arial; padding: 20px; max-width: 800px; margin: auto; }
-    h1 { color: #222; }
-    .project { margin-bottom: 40px; }
-    a { color: #0070f3; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #111;
+    }
+
+    h2 {
+      margin-top: 50px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 6px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .project {
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f2f2f2;
+      padding: 4px 10px;
+      margin: 6px 6px 0 0;
+      font-size: 12px;
+      border-radius: 12px;
+    }
+
+    a {
+      color: #0a66c2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
   </style>
 </head>
+
 <body>
 
-  <h1>Welcome to My Portfolio</h1>
-  <p>Hi, I'm <strong>Chimdi Nwigwe</strong> — an aspiring Business Analyst.
-     I specialize in Accounting with knowledge in SQL, Python, Power BI, and Excel. I am a graduate from the Universtiy of Guelph, holding a Bachelor of Business Administration with a specialization in Accounting. I also recently completed my post graduate studies at Humber Polytechnic in Data Analytics</p>
+  <!-- Header -->
+  <div class="header">
+    <img src="profile.PNG" alt="Chimdi Nwigwe">
 
+    <div>
+      <h1>Chimdi Nwigwe</h1>
+      <p>
+        Business and Data Analyst with a background in accounting, finance, and data analytics.
+        Holds a Bachelor of Business Administration (Accounting) from the University of Guelph
+        and a Graduate Certificate in Data Analytics from Humber Polytechnic.
+        Experienced in SQL, Power BI, Python, and PySpark, with hands-on exposure to analytics,
+        dashboards, and data-driven decision-making.
+      </p>
+
+      <p>
+        <a href="ChimdiNwigwe_A.CV.pdf" target="_blank">Resume</a> ·
+        <a href="https://github.com/chimdi25" target="_blank">GitHub</a> ·
+        <a href="https://linkedin.com/in/chimdinwigwe/" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Projects -->
   <h2>Projects</h2>
 
   <div class="project">
-    <h3>📘 Bookstore Database (MySQL)</h3>
-    <p>A full relational database with stored procedures, events, and role-based access.</p>
-    <a href="https://github.com/chimdi25/bookstore-management-database-mysql" target="_blank">View Project →</a>
+    <h3>📘 Bookstore Management Database (MySQL)</h3>
+    <p>
+      Designed and implemented a fully relational MySQL database for a bookstore,
+      supporting inventory management, customer memberships, order processing,
+      stored procedures, scheduled events, and role-based access control.
+    </p>
+    <div>
+      <span class="tag">MySQL</span>
+      <span class="tag">SQL</span>
+      <span class="tag">Stored Procedures</span>
+      <span class="tag">Events</span>
+      <span class="tag">RBAC</span>
+    </div>
+    <p>
+      <a href="https://github.com/chimdi25/bookstore-management-database-mysql" target="_blank">
+        View GitHub Repository →
+      </a>
+    </p>
   </div>
 
   <div class="project">
-    <h3>📊 Living in Canada Power BI Dashboard</h3>
-    <p>Interactive analytics dashboard showing KPIs and insights on the Quality of Life in Canada.</p>
-    <a href="https://github.com/chimdi25/powerbi-quality-of-life-canada" target="_blank">View Dashboard →</a>
+    <h3>📊 Living in Canada – Quality of Life Dashboard (Power BI)</h3>
+    <p>
+      Developed an interactive Power BI dashboard analyzing quality of life
+      and prosperity indicators across Canada to support regional comparison
+      and data-driven insights.
+    </p>
+    <div>
+      <span class="tag">Power BI</span>
+      <span class="tag">DAX</span>
+      <span class="tag">Data Modeling</span>
+      <span class="tag">Data Visualization</span>
+    </div>
+    <p>
+      <a href="https://github.com/chimdi25/powerbi-quality-of-life-canada" target="_blank">
+        View GitHub Repository →
+      </a>
+    </p>
   </div>
 
-<div class="project">
-  <h3>📂 HR Analytics Case Study (Databricks & PySpark)</h3>
-  <p>
-    Conducted an HR analytics case study using Databricks, PySpark, and Spark SQL
-    to analyze employee salary patterns, tenure, hiring trends, and regional differences.
-    Applied distributed data processing techniques and window functions to generate insights.
-  </p>
-
-  <div>
-    <span class="tag">Databricks</span>
-    <span class="tag">PySpark</span>
-    <span class="tag">Spark SQL</span>
-    <span class="tag">HR Analytics</span>
-    <span class="tag">Data Engineering</span>
+  <div class="project">
+    <h3>📂 HR Analytics Case Study (Databricks & PySpark)</h3>
+    <p>
+      Conducted an HR analytics case study using Databricks, PySpark, and Spark SQL
+      to analyze employee salary patterns, tenure, hiring trends, and regional differences.
+      Applied distributed data processing techniques and window functions to generate insights.
+    </p>
+    <div>
+      <span class="tag">Databricks</span>
+      <span class="tag">PySpark</span>
+      <span class="tag">Spark SQL</span>
+      <span class="tag">HR Analytics</span>
+    </div>
+    <p>
+      <a href="https://github.com/chimdi25/databricks-hr-analytics-case-study" target="_blank">
+        View GitHub Repository →
+      </a>
+    </p>
   </div>
 
-  <p>
-    <a href="https://github.com/chimdi25/databricks-hr-analytics-case-study" target="_blank">
-      View GitHub Repository →
-    </a>
-  </p>
-</div>
-  
+  <!-- Contact -->
   <h2>Contact</h2>
   <p>Email: chimdi25@outlook.com</p>
-  <p>Phone Number: +1(647)-425-1125</p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/chimdinwigwe/" target="_blank">My LinkedIn</a></p>
-  <h2>📄 Resume</h2>
-<p>
-  <a href="ChimdiNwigwe_A.CV.pdf" target="_blank">
-    Download Resume (PDF)
-  </a>
-</p>
+  <p>Phone: +1 (647) 425-1125</p>
+
+  <footer>
+    © 2025 Chimdi Nwigwe
+  </footer>
 
 </body>
 </html>
