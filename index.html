@@ -1,172 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Chimdi Nwigwe | Business & Data Analytics Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 40px;
-      color: #222;
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --line: rgba(255,255,255,0.12);
+      --accent: #4da3ff;
+      --accent2: #7c5cff;
+      --chip: rgba(77,163,255,0.14);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 20% -10%, rgba(77,163,255,0.20), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(124,92,255,0.18), transparent 55%),
+        radial-gradient(700px 500px at 50% 110%, rgba(77,163,255,0.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    h1, h2, h3 {
-      color: #111;
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px 22px 60px;
     }
 
-    h2 {
-      margin-top: 50px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 6px;
+    .topbar{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 16px;
+      margin-bottom: 26px;
     }
 
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: 50px;
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
+    .statusDot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 16px rgba(77,163,255,0.6);
     }
 
-    .project {
-      margin-bottom: 40px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #f2f2f2;
-      padding: 4px 10px;
-      margin: 6px 6px 0 0;
-      font-size: 12px;
-      border-radius: 12px;
-    }
-
-    a {
-      color: #0a66c2;
+    a{
+      color: var(--text);
       text-decoration: none;
-      font-weight: 600;
+    }
+    a:hover{ color: white; }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap: 28px;
+      align-items:center;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
-    a:hover {
-      text-decoration: underline;
+    .avatarWrap{
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
     }
 
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #777;
-      font-size: 14px;
+    .avatarWrap::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: linear-gradient(135deg, rgba(77,163,255,0.55), rgba(124,92,255,0.45));
+      filter: blur(18px);
+      opacity: 0.35;
+      z-index:0;
+    }
+
+    .avatar{
+      position: relative;
+      z-index:1;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    h1{
+      margin: 0 0 6px 0;
+      font-size: 34px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle{
+      margin: 0 0 14px 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 720px;
+    }
+
+    .links{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .linkBtn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .linkBtn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(77,163,255,0.35);
+    }
+
+    .section{
+      margin-top: 36px;
+    }
+
+    .sectionTitle{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0 0 14px 0;
+    }
+
+    .sectionTitle h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(77,163,255,0.32);
+    }
+
+    .cardHeader{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items:flex-start;
+      margin-bottom: 8px;
+    }
+
+    .card h3{
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .card p{
+      margin: 8px 0 0 0;
+      color: var(--muted);
+    }
+
+    .chips{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(77,163,255,0.20);
+      background: var(--chip);
+      color: rgba(255,255,255,0.82);
+    }
+
+    .ctaRow{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(77,163,255,0.35);
+      background: linear-gradient(135deg, rgba(77,163,255,0.18), rgba(124,92,255,0.14));
+      color: white;
+      font-weight: 650;
+    }
+
+    .cta:hover{
+      border-color: rgba(77,163,255,0.55);
+      color: white;
+    }
+
+    .contact{
+      display:grid;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    footer{
+      margin-top: 44px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: rgba(255,255,255,0.55);
+      text-align:center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px){
+      .hero{
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .avatarWrap{
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+      }
+      h1{ font-size: 30px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-  <!-- Header -->
-  <div class="header">
-    <img src="profile.PNG" alt="Chimdi Nwigwe">
-
-    <div>
-      <h1>Chimdi Nwigwe</h1>
-      <p>
-        Business and Data Analyst with a background in accounting, finance, and data analytics.
-        Holds a Bachelor of Business Administration (Accounting) from the University of Guelph
-        and a Graduate Certificate in Data Analytics from Humber Polytechnic.
-        Experienced in SQL, Power BI, Python, and PySpark, with hands-on exposure to analytics,
-        dashboards, and data-driven decision-making.
-      </p>
-
-      <p>
-        <a href="ChimdiNwigwe_A.CV.pdf" target="_blank">Resume</a> ·
-        <a href="https://github.com/chimdi25" target="_blank">GitHub</a> ·
-        <a href="https://linkedin.com/in/chimdinwigwe/" target="_blank">LinkedIn</a>
-      </p>
+    <div class="topbar">
+      <div class="pill"><span class="statusDot"></span> Open to Analyst & Finance roles</div>
+      <div class="pill">Milton, Ontario</div>
     </div>
-  </div>
 
-  <!-- Projects -->
-  <h2>Projects</h2>
+    <div class="hero">
+      <!-- Upload your photo as profile.jpg in the same repo -->
+      <div class="avatarWrap">
+        <img class="avatar" src="profile.PNG" alt="Chimdi Nwigwe">
+      </div>
 
-  <div class="project">
-    <h3>📘 Bookstore Management Database (MySQL)</h3>
-    <p>
-      Designed and implemented a fully relational MySQL database for a bookstore,
-      supporting inventory management, customer memberships, order processing,
-      stored procedures, scheduled events, and role-based access control.
-    </p>
-    <div>
-      <span class="tag">MySQL</span>
-      <span class="tag">SQL</span>
-      <span class="tag">Stored Procedures</span>
-      <span class="tag">Events</span>
-      <span class="tag">RBAC</span>
+      <div>
+        <h1>Chimdi Nwigwe</h1>
+        <p class="subtitle">
+          Business & Data Analyst with a background in accounting, finance, and data analytics.
+          Skilled in SQL, Power BI, Python, and PySpark—focused on building dashboards,
+          automations, and data workflows that support decision-making.
+        </p>
+
+        <div class="links">
+          <a class="linkBtn" href="ChimdiNwigwe_A.CV.pdf" target="_blank">📄 Resume</a>
+          <a class="linkBtn" href="https://github.com/chimdi25" target="_blank">💻 GitHub</a>
+          <a class="linkBtn" href="https://linkedin.com/in/chimdinwigwe/" target="_blank">🔗 LinkedIn</a>
+          <a class="linkBtn" href="mailto:chimdi25@outlook.com">✉️ Email</a>
+        </div>
+      </div>
     </div>
-    <p>
-      <a href="https://github.com/chimdi25/bookstore-management-database-mysql" target="_blank">
-        View GitHub Repository →
-      </a>
-    </p>
-  </div>
 
-  <div class="project">
-    <h3>📊 Living in Canada – Quality of Life Dashboard (Power BI)</h3>
-    <p>
-      Developed an interactive Power BI dashboard analyzing quality of life
-      and prosperity indicators across Canada to support regional comparison
-      and data-driven insights.
-    </p>
-    <div>
-      <span class="tag">Power BI</span>
-      <span class="tag">DAX</span>
-      <span class="tag">Data Modeling</span>
-      <span class="tag">Data Visualization</span>
+    <div class="section">
+      <div class="sectionTitle">
+        <h2>Projects</h2>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="cardHeader">
+            <h3>📘 Bookstore Management Database (MySQL)</h3>
+          </div>
+          <p>
+            Built a relational MySQL database for a bookstore with inventory, memberships,
+            orders, payments, stored procedures, scheduled events, and role-based access control.
+          </p>
+          <div class="chips">
+            <span class="chip">MySQL</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Stored Procedures</span>
+            <span class="chip">Events</span>
+            <span class="chip">RBAC</span>
+          </div>
+          <div class="ctaRow">
+            <a class="cta" href="https://github.com/chimdi25/bookstore-management-database-mysql" target="_blank">
+              View Repo →
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <h3>📊 Living in Canada – Quality of Life (Power BI)</h3>
+          </div>
+          <p>
+            Interactive Power BI dashboard exploring quality of life and prosperity indicators across Canada,
+            designed for regional comparison and insight-driven storytelling.
+          </p>
+          <div class="chips">
+            <span class="chip">Power BI</span>
+            <span class="chip">DAX</span>
+            <span class="chip">Data Modeling</span>
+            <span class="chip">Dashboard Design</span>
+          </div>
+          <div class="ctaRow">
+            <a class="cta" href="https://github.com/chimdi25/powerbi-quality-of-life-canada" target="_blank">
+              View Repo →
+            </a>
+            <!-- If you have a Power BI Service link, replace # with it -->
+            <!-- <a class="cta" href="#" target="_blank">Live Report →</a> -->
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <h3>📂 HR Analytics Case Study (Databricks & PySpark)</h3>
+          </div>
+          <p>
+            HR analytics case study using Databricks, PySpark, and Spark SQL to analyze salary patterns,
+            tenure and hiring trends, and regional differences using window functions and aggregations.
+          </p>
+          <div class="chips">
+            <span class="chip">Databricks</span>
+            <span class="chip">PySpark</span>
+            <span class="chip">Spark SQL</span>
+            <span class="chip">Window Functions</span>
+          </div>
+          <div class="ctaRow">
+            <a class="cta" href="https://github.com/chimdi25/databricks-hr-analytics-case-study" target="_blank">
+              View Repo →
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <p>
-      <a href="https://github.com/chimdi25/powerbi-quality-of-life-canada" target="_blank">
-        View GitHub Repository →
-      </a>
-    </p>
-  </div>
 
-  <div class="project">
-    <h3>📂 HR Analytics Case Study (Databricks & PySpark)</h3>
-    <p>
-      Conducted an HR analytics case study using Databricks, PySpark, and Spark SQL
-      to analyze employee salary patterns, tenure, hiring trends, and regional differences.
-      Applied distributed data processing techniques and window functions to generate insights.
-    </p>
-    <div>
-      <span class="tag">Databricks</span>
-      <span class="tag">PySpark</span>
-      <span class="tag">Spark SQL</span>
-      <span class="tag">HR Analytics</span>
+    <div class="section">
+      <div class="sectionTitle">
+        <h2>Contact</h2>
+      </div>
+      <div class="card">
+        <div class="contact">
+          <div>Email: <a href="mailto:chimdi25@outlook.com">chimdi25@outlook.com</a></div>
+          <div>Phone: +1 (647) 425-1125</div>
+          <div>LinkedIn: <a href="https://linkedin.com/in/chimdinwigwe/" target="_blank">linkedin.com/in/chimdinwigwe</a></div>
+        </div>
+      </div>
     </div>
-    <p>
-      <a href="https://github.com/chimdi25/databricks-hr-analytics-case-study" target="_blank">
-        View GitHub Repository →
-      </a>
-    </p>
+
+    <footer>
+      © 2025 Chimdi Nwigwe · Built with GitHub Pages
+    </footer>
+
   </div>
-
-  <!-- Contact -->
-  <h2>Contact</h2>
-  <p>Email: chimdi25@outlook.com</p>
-  <p>Phone: +1 (647) 425-1125</p>
-
-  <footer>
-    © 2025 Chimdi Nwigwe
-  </footer>
-
 </body>
 </html>
